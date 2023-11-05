@@ -3,10 +3,6 @@ package com.warriordining.login6;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-import com.google.firebase.auth.ActionCodeSettings;
-import com.google.firebase.auth.FirebaseAuth;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -30,8 +26,17 @@ public class MainActivity extends AppCompatActivity {
                         .build();
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        Object email = null;
-        auth.sendSignInLinkToEmail((String) email, actionCodeSettings)
+        FirebaseUser user = auth.getCurrentUser();
+
+        String url = "http://www.example.com/verify?uid=" + user.getUid();
+        ActionCodeSettings actionCodeSettings = ActionCodeSettings.newBuilder()
+                .setUrl(url)
+                .setIOSBundleId("com.example.ios")
+                // The default for this is populated with the current android package name.
+                .setAndroidPackageName("com.example.android", false, null)
+                .build();
+
+        user.sendEmailVerification(actionCodeSettings)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -39,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "Email sent.");
                         }
                     }
+                });
 
 
-    }};
+
+    }
+}
+
