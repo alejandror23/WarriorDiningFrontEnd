@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.google.firebase.auth.ActionCodeSettings;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +29,16 @@ public class MainActivity extends AppCompatActivity {
                                 "12"    /* minimumVersion */)
                         .build();
 
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        Object email = null;
+        auth.sendSignInLinkToEmail((String) email, actionCodeSettings)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Email sent.");
+                        }
+                    }
 
 
-    }
-}
+    }};
