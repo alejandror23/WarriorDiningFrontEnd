@@ -3,8 +3,9 @@ package com.warriordining.login6;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-public class MainActivity extends AppCompatActivity {
 
+
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         user.sendEmailVerification(actionCodeSettings)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
+
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Email sent.");
