@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "831557568343",
+    "project_id": "login-auth-1bfb0",
+    "storage_bucket": "login-auth-1bfb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831557568343:android:a91769c9ba03dd936a6012",
+        "android_client_info": {
+          "package_name": "com.warriordining.login6"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnOmmHXRoh46-056CwmnQO-SIF1fG-dS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
